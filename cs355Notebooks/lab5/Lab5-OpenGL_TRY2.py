@@ -83,7 +83,7 @@ def drawHouse():
 cam_x, cam_y, cam_z = 0, 0, -25
 rot_deg, rot_x, rot_y, rot_z = 0, 0, 0, 0
 move_speed = 1
-projection_mode = "perspective"
+projection_mode = "ortho"
 
 
 def get_rotation():
