@@ -84,6 +84,7 @@ cam_x, cam_y, cam_z = 0, 0, -25
 rot_deg, rot_x, rot_y, rot_z = 0, 0, 0, 0
 move_speed = 1
 projection_mode = "ortho"
+zoom = 15
 
 
 def get_rotation():
@@ -92,28 +93,21 @@ def get_rotation():
 
 
 def display():
+    global zoom
     glClear(GL_COLOR_BUFFER_BIT)
     glColor3f(1.0, 1.0, 1.0)
 
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    if projection_mode == "ortho":
-        width_ratio = DISPLAY_WIDTH / DISPLAY_HEIGHT
-        zoom = cam_z
-        if .1 - zoom == 0:
-            zoom = 0.20
-        glOrtho(.1 + zoom, -.1 - zoom, .1 + zoom, -.1 -zoom, 0.1, 1000)
+    width_ratio = DISPLAY_WIDTH / DISPLAY_HEIGHT
+
+    if zoom > 0:
+        glOrtho(-zoom * width_ratio, zoom * width_ratio, -zoom, zoom, .5, 100)
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
-        glRotated(rot_deg, 0, 1, 0)
         glTranslated(cam_x, cam_y, cam_z)
 
-    else:
-        gluPerspective(45, (DISPLAY_WIDTH / DISPLAY_HEIGHT), 0.1, 100.0)
-        glMatrixMode(GL_MODELVIEW)
-        glLoadIdentity()
-        glRotated(rot_deg, 0, 1, 0)
-        glTranslated(cam_x, cam_y, cam_z)
+
 
     # DO NOT CHANGE -- THIS SETS THE CAMERA!!!!
 
@@ -139,6 +133,7 @@ def keyboard(key, x, y):
     global projection_mode
 
     global rot_deg
+    global zoom
 
     if key == chr(27):
         import sys
@@ -152,13 +147,9 @@ def keyboard(key, x, y):
         cam_x -= new_z
         cam_z -= new_x
     if key == b'w':
-        new_x, new_z = get_front_facing_xz()
-        cam_x -= new_x
-        cam_z += new_z
+        zoom -= 1
     if key == b's':
-        new_x, new_z = get_front_facing_xz()
-        cam_x += new_x
-        cam_z -= new_z
+        zoom += 1
 
     if key == b'r':
         cam_y -= 1
