@@ -91,7 +91,7 @@ def alphaBlend(image1, image2, alpha=.5):
     according to the alpha value. Note that your alpha value can be a single number or a mask image
      of the same size. The alpha values will be between 0 and 1.
     """
-    return image1 * (1.0 - alpha) + image2 * alpha
+    return image1 * alpha + image2 * (1.0 - alpha)
 
 
 def crossDissolve(image1, image2, numsteps=10):
@@ -223,7 +223,7 @@ def sharpen(image):
     :param image:
     :return:
     """
-    # Don't DIVIDE BY TWO!!!
+    # DIVIDE BY TWO!!!
     kernel = np.matrix([[0, -1, 0],
                         [-1, 6, -1],
                         [0, -1, 0]])
@@ -415,5 +415,11 @@ edge_racoon = edgeDetect(gray_racoon)
 plt.imshow(edge_racoon, cmap="Greys_r", vmin=0, vmax=255);
 plt.title("Edge Detection")
 plt.show()
+
+b = np.matrix([[1, 2, 3],
+               [4, 5, 6],
+               [7, 8, 9]])
+
+print(np.flip(b))
 
 ####################################################################

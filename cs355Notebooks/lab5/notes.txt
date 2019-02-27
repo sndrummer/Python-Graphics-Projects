@@ -1,0 +1,3 @@
+In general:
+ 1. you should only put the projection matrices into the GL_PROJECTION matrix.
+ 2. The transforms that go from the model's space to camera space should go into the GL_MODELVIEW matrix.
