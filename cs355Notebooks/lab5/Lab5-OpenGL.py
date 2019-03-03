@@ -19,10 +19,6 @@ except:
 DISPLAY_WIDTH = 500.0
 DISPLAY_HEIGHT = 500.0
 
-HALF_WIDTH = DISPLAY_WIDTH / 2.0
-HALF_HEIGHT = DISPLAY_HEIGHT / 2.0
-
-
 def init():
     glClearColor(0.0, 0.0, 0.0, 0.0)
     glShadeModel(GL_FLAT)
