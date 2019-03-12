@@ -37,13 +37,6 @@ class Vector3:
                          [1]])
 
 
-def get_scale_matrix(x_scalar, y_scalar, z_scalar):
-    return np.matrix([[x_scalar, 0, 0, 0],
-                      [0, y_scalar, 0, 0],
-                      [0, 0, z_scalar, 0],
-                      [0, 0, 0, 1]])
-
-
 def get_yrot_matrix(degrees_rotation):
     radians = math.radians(degrees_rotation)
     c, s = np.cos(radians), np.sin(radians)
@@ -366,21 +359,6 @@ cam = Camera(0, 0, -10, 0)
 car = Car(0, 1, 0)
 
 
-def test_xy_clipping(x, y, w):
-    """
-    Returns true if should be clipped
-    :param x: x coordinate of vertex
-    :param y: y coordinate of vertex
-    :param w: w of camera space point
-    :return: True if should be clipped, False if not
-    """
-    clip = False
-
-    if x < -w or x > w or y < -w or y > w:
-        clip = True
-    return clip
-
-
 def test_clipping(camera_space_coordinates1, camera_space_coordinates2):
     x1, y1, z1 = camera_space_coordinates1.item(0), camera_space_coordinates1.item(1), \
                  camera_space_coordinates1.item(2)
@@ -595,9 +573,12 @@ def animate_car():
         pop_matrix()
     pop_matrix()
 
-    car.tire_rotation -= 2.4
-    car.position.x += .04
     return car_lines, tire_lines
+
+
+def move_car():
+    car.tire_rotation -= 3.6
+    car.position.x += .08
 
 
 DISPLAY_WIDTH = 512
@@ -620,6 +601,9 @@ def main():
     GREEN = (0, 255, 0)
     RED = (255, 0, 0)
 
+    # Define events
+    MOVECAREVENT = 5
+
     # Set the height and width of the screen
     size = [DISPLAY_WIDTH, DISPLAY_HEIGHT]
     screen = pygame.display.set_mode(size)
@@ -631,6 +615,7 @@ def main():
     clock = pygame.time.Clock()
     start = Point(0.0, 0.0)
     end = Point(0.0, 0.0)
+    pygame.time.set_timer(MOVECAREVENT, 10)
     # linelist = loadHouse()
 
     # Loop until the user clicks the close button.
@@ -638,6 +623,7 @@ def main():
         # This limits the while loop to a max of 100 times per second.
         # Leave this out and we will use all CPU we can.
         clock.tick(100)
+
         matrix_stack = []
         matrix_stack.append(get_identity_matrix())
 
@@ -646,6 +632,8 @@ def main():
 
         # Controller Code#
         #####################################################################
+        if pygame.event.get(MOVECAREVENT):
+            move_car()
         for event in pygame.event.get():
             done = get_input(event)
 

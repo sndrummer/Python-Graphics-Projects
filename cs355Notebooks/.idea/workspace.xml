@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89810fd6-5d9c-4e30-9e9f-ccf537990866" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/cs355Notebooks$Lab7_3DProjection.coverage" NAME="Lab7-3DProjection Coverage Results" MODIFIED="1552353736825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/cs355Notebooks$Lab7_3DProjection.coverage" NAME="Lab7-3DProjection Coverage Results" MODIFIED="1552374148448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
     <SUITE FILE_PATH="coverage/cs355Notebooks$Lab5_OpenGL.coverage" NAME="Lab5-OpenGL Coverage Results" MODIFIED="1551254223415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
     <SUITE FILE_PATH="coverage/cs355Notebooks$hw4.coverage" NAME="hw4 Coverage Results" MODIFIED="1549857716704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw4" />
     <SUITE FILE_PATH="coverage/cs355Notebooks$Lab6_OpenGL.coverage" NAME="Lab6-OpenGL Coverage Results" MODIFIED="1551593281380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
@@ -91,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="598" column="25" lean-forward="true" selection-start-line="598" selection-start-column="25" selection-end-line="598" selection-end-column="25" />
+            <state relative-caret-position="6069">
+              <caret line="661" column="22" lean-forward="true" selection-start-line="661" selection-start-column="22" selection-end-line="661" selection-end-column="22" />
               <folding>
                 <element signature="e#48#61#0" expanded="true" />
               </folding>
@@ -470,12 +471,12 @@
       <workItem from="1552204222823" duration="2101000" />
       <workItem from="1552264497944" duration="4213000" />
       <workItem from="1552276153290" duration="13199000" />
-      <workItem from="1552339283771" duration="30618000" />
+      <workItem from="1552339283771" duration="31814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269114000" />
+    <option name="totallyTimeSpent" value="270310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,13 +491,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.114605546" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114605546" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39824945" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -506,7 +507,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32827735" />
-      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.2881907" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.2881907" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -852,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="598" column="25" lean-forward="true" selection-start-line="598" selection-start-column="25" selection-end-line="598" selection-end-column="25" />
+        <state relative-caret-position="6069">
+          <caret line="661" column="22" lean-forward="true" selection-start-line="661" selection-start-column="22" selection-end-line="661" selection-end-column="22" />
           <folding>
             <element signature="e#48#61#0" expanded="true" />
           </folding>
