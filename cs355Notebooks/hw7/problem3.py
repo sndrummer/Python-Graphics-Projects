@@ -176,10 +176,8 @@ def drawHouse():
     glColor3f(1.0, 0.0, 0.0)
     # Floor
     glBegin(GL_LINES)
-    glColor3f(0.0, 1.0, 0.0)
     glVertex3f(-5.0, 0.0, -5.0)
     glVertex3f(5, 0, -5)
-    glColor3f(1.0, 0.0, 0.0)
     glVertex3f(5, 0, -5)
     glVertex3f(5, 0, 5)
     glVertex3f(5, 0, 5)
@@ -187,7 +185,6 @@ def drawHouse():
     glVertex3f(-5, 0, 5)
     glVertex3f(-5, 0, -5)
     # Ceiling
-    glColor3f(1.0, 0.0, 0.0)
     glVertex3f(-5, 5, -5)
     glVertex3f(5, 5, -5)
     glVertex3f(5, 5, -5)
@@ -227,7 +224,7 @@ def drawHouse():
 
 
 # init camera
-cam = Camera(0, 0, -10, 0)
+cam = Camera(20, 5, -40, 30)
 # init car
 car = Car(0, 1, 0)
 
@@ -255,9 +252,8 @@ def display():
         glRotated(cam.cur_rotation, 0, 1, 0)
         glTranslated(cam.cur_position.x, cam.cur_position.y, cam.cur_position.z)
 
-    drawHouse()
-    #draw_neighborhood()
-    #animate_car()
+    draw_neighborhood()
+    animate_car()
 
     glFlush()
 
