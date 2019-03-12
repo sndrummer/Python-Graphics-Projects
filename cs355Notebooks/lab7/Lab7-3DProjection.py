@@ -53,6 +53,15 @@ def get_yrot_matrix(degrees_rotation):
                       [0, 0, 0, 1]])
 
 
+def get_zrot_matrix(degrees_rotation):
+    radians = math.radians(degrees_rotation)
+    c, s = np.cos(radians), np.sin(radians)
+    return np.matrix([[c, -s, 0, 0],
+                      [s, c, 0, 0],
+                      [0, 0, 1, 0],
+                      [0, 0, 0, 1]])
+
+
 def get_translation_matrix(x, y, z):
     return np.matrix([[1, 0, 0, x],
                       [0, 1, 0, y],
@@ -467,17 +476,12 @@ def to_screen_space(vertex_coordinates):
     return new_coordinates.item(0), new_coordinates.item(1)
 
 
-def line_transform(line, offset, rotation):
+def line_transform(line, transformation_matrix):
     line_start = Vector3(line.start.x, line.start.y, line.start.z)
     line_end = Vector3(line.end.x, line.end.y, line.end.z)
 
-    # 1. Get Translation Matrix
-    line_translation = get_translation_matrix(offset[0], offset[1], offset[2])
-    # 2. Get Rotation Matrix
-    line_rotation = get_yrot_matrix(rotation)
-
-    new_start = line_translation * line_rotation * line_start.get_as_hvector()
-    new_end = line_translation * line_rotation * line_end.get_as_hvector()
+    new_start = transformation_matrix * line_start.get_as_hvector()
+    new_end = transformation_matrix * line_end.get_as_hvector()
 
     line_start = Vector3(new_start.item(0), new_start.item(1), new_start.item(2))
     line_end = Vector3(new_end.item(0), new_end.item(1), new_end.item(2))
@@ -485,19 +489,28 @@ def line_transform(line, offset, rotation):
     return line_start, line_end
 
 
-def push_translation_rotation_matrix(offset, rotation):
+def push_translation_rotation_matrix(offset, rotation, rot_type="y"):
     prev_matrix = matrix_stack[-1]  # load previous matrix in stack
     t = get_translation_matrix(offset[0], offset[1], offset[2])
-    r = get_yrot_matrix(rotation)
+    if rot_type != "y":
+        r = get_zrot_matrix(rotation)
+    else:
+        r = get_yrot_matrix(rotation)
     transformation_matrix = prev_matrix * t * r
     matrix_stack.append(transformation_matrix)
+    return transformation_matrix
 
 
-def draw_object(lines, offset, rotation):
-    global view_matrix
+def pop_matrix():
+    matrix_stack.pop()
+
+
+def draw_object(lines, transformation_matrix):
     pg_lines = []
     for line in lines:
-        line_start, line_end = line_transform(line, offset, rotation)
+        # push matrix
+        line_start, line_end = line_transform(line, transformation_matrix)
+        # pop matrix
         view_matrix = cam.set_view_matrix()
         cs_coordinates_start = get_camera_space_coordinates(view_matrix,
                                                             line_start)
@@ -526,21 +539,29 @@ def draw_neighborhood():
     pg_lines = []
     house_offset = [0, 0, -25]
     for i in range(5):
-        pg_lines.extend(draw_object(loadHouse(), house_offset, 0))
+        transformation_matrix = push_translation_rotation_matrix(house_offset, 0)
+        pg_lines.extend(draw_object(loadHouse(), transformation_matrix))
         house_offset[0] += 15
+        pop_matrix()
 
     # Second row of houses
     house_offset = [0, 0, 16]
     for i in range(5):
-        pg_lines.extend(draw_object(loadHouse(), house_offset, 180))
+        transformation_matrix = push_translation_rotation_matrix(house_offset, 180)
+        pg_lines.extend(draw_object(loadHouse(), transformation_matrix))
         house_offset[0] += 15
+        pop_matrix()
 
     # houses at the end of the street
     house_offset = [-18, 0, -12]
-    pg_lines.extend(draw_object(loadHouse(), house_offset, 270))
+    transformation_matrix = push_translation_rotation_matrix(house_offset, 270)
+    pg_lines.extend(draw_object(loadHouse(), transformation_matrix))
+    pop_matrix()
 
     house_offset = [-18, 0, 2]
-    pg_lines.extend(draw_object(loadHouse(), house_offset, 270))
+    transformation_matrix = push_translation_rotation_matrix(house_offset, 270)
+    pg_lines.extend(draw_object(loadHouse(), transformation_matrix))
+    pop_matrix()
 
     return pg_lines
 
@@ -553,24 +574,30 @@ def animate_car():
        4. Draw it
        5. Pop the matrix
        """
+
+    car_lines = []
+    tire_lines = []
     # move car along
-    #glPushMatrix()
+    # glPushMatrix()
     offset = [car.position.x, car.position.y, car.position.z]
-    push_translation_rotation_matrix(offset, 0)
-    #glTranslated(car.position.x, car.position.y, car.position.z)
-    draw_object(loadCar(), offset, 0)  # draw car
-    #drawCar()
+    transformation_matrix = push_translation_rotation_matrix(offset, 0)
+    # glTranslated(car.position.x, car.position.y, car.position.z)
+    car_lines.extend(draw_object(loadCar(), transformation_matrix))  # draw car
+    # drawCar()
 
     # translate and rotate tires
     for tire in car.tires:
-        glPushMatrix()
-        glTranslated(tire.x, tire.y, tire.z)
-        car.tire_rotation -= .2
-        glRotated(car.tire_rotation, 0, 0, 1)
-        drawTire()
-        glPopMatrix()
+        offset = [tire.x, tire.y, tire.z]
+        transformation_matrix = push_translation_rotation_matrix(offset, car.tire_rotation,
+                                                                 rot_type="z")
+        tire_lines.extend(draw_object(loadTire(), transformation_matrix))
 
-    glPopMatrix()
+        pop_matrix()
+    pop_matrix()
+
+    car.tire_rotation -= 2.4
+    car.position.x += .04
+    return car_lines, tire_lines
 
 
 DISPLAY_WIDTH = 512
@@ -627,12 +654,19 @@ def main():
         view_matrix = cam.set_view_matrix()  # set transformed view matrix
         neighborhood_lines = []
         neighborhood_lines = draw_neighborhood()  # returns a list of translated coordinate lines
-        print(len(neighborhood_lines))
+
         for line in neighborhood_lines:
             pygame.draw.line(screen, RED, (line.start_x, line.start_y), (line.end_x, line.end_y))
 
         car_lines = []
-        #car_lines = draw_object(loadCar())
+        tire_lines = []
+        car_lines, tire_lines = animate_car()
+
+        for line in car_lines:
+            pygame.draw.line(screen, GREEN, (line.start_x, line.start_y), (line.end_x, line.end_y))
+
+        for line in tire_lines:
+            pygame.draw.line(screen, BLUE, (line.start_x, line.start_y), (line.end_x, line.end_y))
 
         # Go ahead and update the screen with what we've drawn.
         # This MUST happen after all the other drawing commands.
