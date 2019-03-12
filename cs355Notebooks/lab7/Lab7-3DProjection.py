@@ -53,6 +53,20 @@ def get_yrot_matrix(degrees_rotation):
                       [0, 0, 0, 1]])
 
 
+def get_translation_matrix(x, y, z):
+    return np.matrix([[1, 0, 0, x],
+                      [0, 1, 0, y],
+                      [0, 0, 1, z],
+                      [0, 0, 0, 1]])
+
+
+def get_identity_matrix():
+    return np.matrix([[1, 0, 0, 0],
+                      [0, 1, 0, 0],
+                      [0, 0, 1, 0],
+                      [0, 0, 0, 1]])
+
+
 class Camera:
     def __init__(self, x, y, z, deg_rot):
         self.starting_position = Vector3(x, y, z)
@@ -83,12 +97,37 @@ class Camera:
         return cam.step * math.sin(yaw_radian) * math.cos(0), cam.step * math.cos(
             yaw_radian) * math.cos(0)
 
+    def get_yrot_matrix(self):
+        radians = math.radians(self.cur_rotation)
+        c, s = np.cos(radians), np.sin(radians)
+        return np.matrix([[c, 0, -s, 0],
+                          [0, 1, 0, 0],
+                          [s, 0, c, 0],
+                          [0, 0, 0, 1]])
+
     def get_translation_matrix(self):
         # x, y, z = cam_position.x, cam_position.y, cam_position.z
         return np.matrix([[1, 0, 0, -self.cur_position.x],
                           [0, 1, 0, -self.cur_position.y],
                           [0, 0, 1, -self.cur_position.z],
                           [0, 0, 0, 1]])
+
+    def set_view_matrix(self):
+        # Step 1 Project
+        perspective = get_perspective_matrix(60, (DISPLAY_WIDTH / DISPLAY_HEIGHT), 0.1, 100.0)
+        # Step 2 Rotate
+        rotation = self.get_yrot_matrix()
+        # Step 3 Translate
+        translation = self.get_translation_matrix()
+        return perspective * rotation * translation
+
+
+class PyGameLine:
+    def __init__(self, start_x, start_y, end_x, end_y):
+        self.start_x = start_x
+        self.start_y = start_y
+        self.end_x = end_x
+        self.end_y = end_y
 
 
 class Car:
@@ -317,8 +356,6 @@ cam = Camera(0, 0, -10, 0)
 # init car
 car = Car(0, 1, 0)
 
-camera_matrix = None
-
 
 def test_xy_clipping(x, y, w):
     """
@@ -387,16 +424,14 @@ def get_perspective_matrix(fov_degrees, aspect, near, far):
                       [0, 0, 1, 0]])
 
 
-def get_camera_space_coordinates(perspective, rotation, translation, world_position):
+def get_camera_space_coordinates(camera_matrix, world_position):
     """
-    :param perspective: perspective camera matrix
-    :param rotation: camera rotation matrix
-    :param translation: camera translation matrix
+    :param camera_matrix: transformed perspective camera matrix
     :param world_position: position of coordinate in the world
     :return: camera space coordinates
     """
     world_coordinates = world_position.get_as_hvector()
-    camera_space_coordinates = perspective * rotation * translation * world_coordinates
+    camera_space_coordinates = camera_matrix * world_coordinates
     # print("Camera Space coordinates: ", camera_space_coordinates)
     return camera_space_coordinates
 
@@ -410,16 +445,6 @@ def get_canonical_coordinates(camera_space_coordinates):
     canonical_coordinates = camera_space_coordinates / w
     # print("Canonical coordinates: \n", canonical_coordinates)
     return canonical_coordinates
-
-
-def get_screen_space_coordinates(w_x, w_y):
-    """
-
-    :param x:
-    :param y:
-    :return:
-    """
-    return None
 
 
 def to_screen_space(vertex_coordinates):
@@ -442,14 +467,124 @@ def to_screen_space(vertex_coordinates):
     return new_coordinates.item(0), new_coordinates.item(1)
 
 
+def line_transform(line, offset, rotation):
+    line_start = Vector3(line.start.x, line.start.y, line.start.z)
+    line_end = Vector3(line.end.x, line.end.y, line.end.z)
+
+    # 1. Get Translation Matrix
+    line_translation = get_translation_matrix(offset[0], offset[1], offset[2])
+    # 2. Get Rotation Matrix
+    line_rotation = get_yrot_matrix(rotation)
+
+    new_start = line_translation * line_rotation * line_start.get_as_hvector()
+    new_end = line_translation * line_rotation * line_end.get_as_hvector()
+
+    line_start = Vector3(new_start.item(0), new_start.item(1), new_start.item(2))
+    line_end = Vector3(new_end.item(0), new_end.item(1), new_end.item(2))
+
+    return line_start, line_end
+
+
+def push_translation_rotation_matrix(offset, rotation):
+    prev_matrix = matrix_stack[-1]  # load previous matrix in stack
+    t = get_translation_matrix(offset[0], offset[1], offset[2])
+    r = get_yrot_matrix(rotation)
+    transformation_matrix = prev_matrix * t * r
+    matrix_stack.append(transformation_matrix)
+
+
+def draw_object(lines, offset, rotation):
+    global view_matrix
+    pg_lines = []
+    for line in lines:
+        line_start, line_end = line_transform(line, offset, rotation)
+        view_matrix = cam.set_view_matrix()
+        cs_coordinates_start = get_camera_space_coordinates(view_matrix,
+                                                            line_start)
+        cs_coordinates_end = get_camera_space_coordinates(view_matrix,
+                                                          line_end)
+
+        # If line doesn't pass clipping test go to next line
+        if not test_clipping(cs_coordinates_start, cs_coordinates_end):
+            continue
+
+        canonical_space_coordinates_start = get_canonical_coordinates(
+            cs_coordinates_start)
+        canonical_space_coordinates_end = get_canonical_coordinates(
+            cs_coordinates_end)
+
+        start_x, start_y = to_screen_space(canonical_space_coordinates_start)
+        end_x, end_y = to_screen_space(canonical_space_coordinates_end)
+
+        pg_line = PyGameLine(start_x, start_y, end_x, end_y)
+        pg_lines.append(pg_line)
+
+    return pg_lines
+
+
+def draw_neighborhood():
+    pg_lines = []
+    house_offset = [0, 0, -25]
+    for i in range(5):
+        pg_lines.extend(draw_object(loadHouse(), house_offset, 0))
+        house_offset[0] += 15
+
+    # Second row of houses
+    house_offset = [0, 0, 16]
+    for i in range(5):
+        pg_lines.extend(draw_object(loadHouse(), house_offset, 180))
+        house_offset[0] += 15
+
+    # houses at the end of the street
+    house_offset = [-18, 0, -12]
+    pg_lines.extend(draw_object(loadHouse(), house_offset, 270))
+
+    house_offset = [-18, 0, 2]
+    pg_lines.extend(draw_object(loadHouse(), house_offset, 270))
+
+    return pg_lines
+
+
+def animate_car():
+    """Use push so that you can apply some transformations at the same time?
+       1. Push the matrix from stack
+       2. Translate to position
+       3. Rotate it
+       4. Draw it
+       5. Pop the matrix
+       """
+    # move car along
+    #glPushMatrix()
+    offset = [car.position.x, car.position.y, car.position.z]
+    push_translation_rotation_matrix(offset, 0)
+    #glTranslated(car.position.x, car.position.y, car.position.z)
+    draw_object(loadCar(), offset, 0)  # draw car
+    #drawCar()
+
+    # translate and rotate tires
+    for tire in car.tires:
+        glPushMatrix()
+        glTranslated(tire.x, tire.y, tire.z)
+        car.tire_rotation -= .2
+        glRotated(car.tire_rotation, 0, 0, 1)
+        drawTire()
+        glPopMatrix()
+
+    glPopMatrix()
+
+
 DISPLAY_WIDTH = 512
 DISPLAY_HEIGHT = 512
+
+matrix_stack = []
+view_matrix = None
 
 
 def main():
     # Initialize the game engine
     pygame.init()
-    global camera_matrix
+    global view_matrix
+    global matrix_stack
 
     # Define the colors we will use in RGB format
     BLACK = (0, 0, 0)
@@ -469,73 +604,35 @@ def main():
     clock = pygame.time.Clock()
     start = Point(0.0, 0.0)
     end = Point(0.0, 0.0)
-    linelist = loadHouse()
+    # linelist = loadHouse()
 
     # Loop until the user clicks the close button.
     while not done:
         # This limits the while loop to a max of 100 times per second.
         # Leave this out and we will use all CPU we can.
         clock.tick(100)
+        matrix_stack = []
+        matrix_stack.append(get_identity_matrix())
 
         # Clear the screen and set the screen background
         screen.fill(BLACK)
 
         # Controller Code#
         #####################################################################
-
         for event in pygame.event.get():
             done = get_input(event)
 
-        # pressed = pygame.key.get_pressed()
-        #
-        # if pressed[pygame.K_a]:
-        #     count += 1
-        #     print("a is pressed ", count)
-
         # Viewer Code#
         #####################################################################
+        view_matrix = cam.set_view_matrix()  # set transformed view matrix
+        neighborhood_lines = []
+        neighborhood_lines = draw_neighborhood()  # returns a list of translated coordinate lines
+        print(len(neighborhood_lines))
+        for line in neighborhood_lines:
+            pygame.draw.line(screen, RED, (line.start_x, line.start_y), (line.end_x, line.end_y))
 
-        # Get Perspective Camera
-        # TODO I AM HERE
-
-        # P' = Projection × View × Model × P
-        # Step 1 Project
-        perspective = get_perspective_matrix(60, (DISPLAY_WIDTH / DISPLAY_HEIGHT), 0.1, 100.0)
-        # Step 2 Rotate
-        rotation = get_yrot_matrix(cam.cur_rotation)
-        # Step 3 Translate
-        translation = cam.get_translation_matrix()
-        # print("translation matrix: \n", translation)
-
-        # Step 4 put them together
-        # camera_matrix = perspective * rotation * translation
-
-        # Step 5 do all real world crap and then translate it with the camera
-
-        # camera_pos = cam.cur_position.get_as_hvector()  # get numpy array of position
-
-        for s in linelist:
-            # BOGUS DRAWING PARAMETERS SO YOU CAN SEE THE HOUSE WHEN YOU START UP
-            # TODO GET NEW COORDINATES OF LINE
-            # 1. Transform and rotate modelview matrix
-            # 2. Apply to screen space matrix
-            line_start = Vector3(s.start.x, s.start.y, s.start.z)
-            line_end = Vector3(s.end.x, s.end.y, s.end.z)
-            camera_space_coordinates1 = get_camera_space_coordinates(perspective, rotation,
-                                                                     translation, line_start)
-            camera_space_coordinates2 = get_camera_space_coordinates(perspective, rotation,
-                                                                     translation, line_end)
-            # If line doesn't pass clipping test go to next line
-            if not test_clipping(camera_space_coordinates1, camera_space_coordinates2):
-                continue
-
-            canonical_space_coordinates_start = get_canonical_coordinates(camera_space_coordinates1)
-            canonical_space_coordinates_end = get_canonical_coordinates(camera_space_coordinates2)
-
-            start_x, start_y = to_screen_space(canonical_space_coordinates_start)
-            end_x, end_y = to_screen_space(canonical_space_coordinates_end)
-
-            pygame.draw.line(screen, RED, (start_x, start_y), (end_x, end_y))
+        car_lines = []
+        #car_lines = draw_object(loadCar())
 
         # Go ahead and update the screen with what we've drawn.
         # This MUST happen after all the other drawing commands.

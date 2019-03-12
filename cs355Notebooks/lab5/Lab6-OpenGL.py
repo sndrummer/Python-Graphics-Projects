@@ -255,9 +255,9 @@ def display():
         glRotated(cam.cur_rotation, 0, 1, 0)
         glTranslated(cam.cur_position.x, cam.cur_position.y, cam.cur_position.z)
 
-    drawHouse()
-    #draw_neighborhood()
-    #animate_car()
+    #drawHouse()
+    draw_neighborhood()
+    animate_car()
 
     glFlush()
 
