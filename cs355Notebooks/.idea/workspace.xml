@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89810fd6-5d9c-4e30-9e9f-ccf537990866" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw7/hw7.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw7/problem3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw7/testWithOpenGl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab5/Lab6-OpenGL.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/Lab6-OpenGL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/Lab6-OpenGL.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="348" column="35" lean-forward="true" selection-start-line="341" selection-start-column="4" selection-end-line="348" selection-end-column="35" />
+            <state relative-caret-position="227">
+              <caret line="346" column="3" lean-forward="true" selection-start-line="346" selection-start-column="3" selection-end-line="348" selection-end-column="35" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -95,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="266" column="24" selection-start-line="266" selection-start-column="24" selection-end-line="266" selection-end-column="38" />
+            <state relative-caret-position="-6501">
+              <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
               <folding>
                 <element signature="e#48#61#0" expanded="true" />
               </folding>
@@ -153,8 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rot</find>
-      <find>1000</find>
       <find>glorth</find>
       <find>tire</find>
       <find>draw_car</find>
@@ -174,13 +169,15 @@
       <find>get_cli</find>
       <find>rotation</find>
       <find>hve</find>
-      <find>print</find>
       <find>get_</find>
       <find>print(&quot;x:</find>
       <find>w</find>
       <find>x:</find>
       <find>loadHo</find>
       <find>index</find>
+      <find>front</find>
+      <find>print</find>
+      <find>front</find>
       <find>input</find>
       <find>drawho</find>
     </findStrings>
@@ -483,12 +480,12 @@
       <workItem from="1552204222823" duration="2101000" />
       <workItem from="1552264497944" duration="4213000" />
       <workItem from="1552276153290" duration="13199000" />
-      <workItem from="1552339283771" duration="13835000" />
+      <workItem from="1552339283771" duration="19599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252331000" />
+    <option name="totallyTimeSpent" value="258095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,9 +500,10 @@
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23522976" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23522976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
@@ -825,13 +823,6 @@
     <entry file="file://$PROJECT_DIR$/lab5/projection.PNG">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/Lab6Models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL_TRY2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -854,18 +845,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/Lab6-OpenGL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="348" column="35" lean-forward="true" selection-start-line="341" selection-start-column="4" selection-end-line="348" selection-end-column="35" />
+        <state relative-caret-position="227">
+          <caret line="346" column="3" lean-forward="true" selection-start-line="346" selection-start-column="3" selection-end-line="348" selection-end-column="35" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/Lab6Models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="266" column="24" selection-start-line="266" selection-start-column="24" selection-end-line="266" selection-end-column="38" />
+        <state relative-caret-position="-6501">
+          <caret line="90" column="40" lean-forward="true" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
           <folding>
             <element signature="e#48#61#0" expanded="true" />
           </folding>

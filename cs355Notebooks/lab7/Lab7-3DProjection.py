@@ -264,39 +264,30 @@ def get_input(event):
         done = True
     elif event.type == pygame.KEYDOWN:
         print("x: ", cam.cur_position.x, " y: ", cam.cur_position.y, "z: ", cam.cur_position.z)
+        print("Rotation: ", cam.cur_rotation)
         key = pygame.key
 
-        # if key == b'a':
-        #     new_z, new_x = get_front_facing_xz()  # swap forward movement for side
-        #     cam.cur_position.x += new_x
-        #     cam.cur_position.z += new_z
-        # if key == b'd':
-        #     new_x, new_z = get_front_facing_xz()  # swap forward movement for side
-        #     cam.cur_position.x -= new_z
-        #     cam.cur_position.z -= new_x
+        if event.key == pygame.K_w:
+            print("w is pressed")
+            new_x, new_z = cam.get_front_facing_xz()
+            cam.cur_position.x += new_x
+            cam.cur_position.z += new_z
+        elif event.key == pygame.K_s:
+            print("s is pressed")
+            new_x, new_z = cam.get_front_facing_xz()
+            cam.cur_position.x -= new_x
+            cam.cur_position.z -= new_z
 
-        if event.key == pygame.K_a:
+        elif event.key == pygame.K_a:
             print("a is pressed")
             new_z, new_x = cam.get_front_facing_xz()  # swap forward movement for side
             cam.cur_position.x -= new_x
-            cam.cur_position.z -= new_z
+            cam.cur_position.z += new_z
         elif event.key == pygame.K_d:
             print("d is pressed")
             new_x, new_z = cam.get_front_facing_xz()  # swap forward movement for side
             cam.cur_position.x += new_z
-            cam.cur_position.z += new_x
-
-        elif event.key == pygame.K_w:
-            print("w is pressed")
-            new_x, new_z = cam.get_front_facing_xz()
-            cam.cur_position.x -= new_x
-            cam.cur_position.z += new_z
-
-        elif event.key == pygame.K_s:
-            print("s is pressed")
-            new_x, new_z = cam.get_front_facing_xz()
-            cam.cur_position.x += new_x
-            cam.cur_position.z -= new_z
+            cam.cur_position.z -= new_x
 
         elif event.key == pygame.K_q:
             print("q is pressed")
@@ -308,11 +299,11 @@ def get_input(event):
 
         elif event.key == pygame.K_r:
             print("r is pressed")
-            cam.cur_position.y -= 1
+            cam.cur_position.y += 1
 
         elif event.key == pygame.K_f:
             print("f is pressed")
-            cam.cur_position.y += 1
+            cam.cur_position.y -= 1
 
         elif event.key == pygame.K_h:
             print("h is pressed")
@@ -327,18 +318,6 @@ cam = Camera(0, 0, -10, 0)
 car = Car(0, 1, 0)
 
 camera_matrix = None
-
-
-def get_clip_space_matrix(fov_degrees, near, far):
-    radians = math.radians(fov_degrees)
-    zoom = 1 / math.tan(radians / 2)
-    a = (far + near) / (far - near)
-    b = (-2 * near * far) / (far - near)
-
-    return np.matrix([[zoom, 0, 0, 0],
-                      [0, zoom, 0, 0],
-                      [0, 0, a, b],
-                      [0, 0, 1, 0]])
 
 
 def test_xy_clipping(x, y, w):
@@ -360,11 +339,11 @@ def test_clipping(camera_space_coordinates1, camera_space_coordinates2):
     x1, y1, z1 = camera_space_coordinates1.item(0), camera_space_coordinates1.item(1), \
                  camera_space_coordinates1.item(2)
     w1 = camera_space_coordinates1.item(3)
-    print("w1: ", w1)
+
     x2, y2, z2 = camera_space_coordinates2.item(0), camera_space_coordinates2.item(
         1), camera_space_coordinates2.item(2)
     w2 = camera_space_coordinates2.item(3)
-    print("w1: ", w2)
+
     # clipping tests
     if x1 < -w1 and x2 < -w2:
         return False
@@ -418,7 +397,7 @@ def get_camera_space_coordinates(perspective, rotation, translation, world_posit
     """
     world_coordinates = world_position.get_as_hvector()
     camera_space_coordinates = perspective * rotation * translation * world_coordinates
-    print("Camera Space coordinates: ", camera_space_coordinates)
+    # print("Camera Space coordinates: ", camera_space_coordinates)
     return camera_space_coordinates
 
 
@@ -427,9 +406,9 @@ def get_canonical_coordinates(camera_space_coordinates):
     :return: camera space coordinates
     """
     w = camera_space_coordinates.item(3)
-    print("w: ", w)
+
     canonical_coordinates = camera_space_coordinates / w
-    print("Canonical coordinates: \n", canonical_coordinates)
+    # print("Canonical coordinates: \n", canonical_coordinates)
     return canonical_coordinates
 
 
