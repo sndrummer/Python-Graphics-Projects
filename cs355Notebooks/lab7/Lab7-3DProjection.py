@@ -17,8 +17,7 @@ class Point3D:
         self.z = z
 
 
-class Line3D():
-
+class Line3D:
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -468,7 +467,7 @@ def line_transform(line, transformation_matrix):
 
 
 def push_translation_rotation_matrix(offset, rotation, rot_type="y"):
-    prev_matrix = matrix_stack[-1]  # load previous matrix in stack
+    prev_matrix = matrix_stack[-1]  # load matrix at the top of the stack
     t = get_translation_matrix(offset[0], offset[1], offset[2])
     if rot_type != "y":
         r = get_zrot_matrix(rotation)

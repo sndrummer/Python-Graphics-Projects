@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89810fd6-5d9c-4e30-9e9f-ccf537990866" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/hw8/alt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw8/hw8.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hw8/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab8/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab8/instructions.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" afterDir="false" />
     </list>
@@ -21,6 +26,9 @@
     <SUITE FILE_PATH="coverage/cs355Notebooks$Lab6_OpenGL.coverage" NAME="Lab6-OpenGL Coverage Results" MODIFIED="1551593281380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
     <SUITE FILE_PATH="coverage/cs355Notebooks$peacock.coverage" NAME="peacock Coverage Results" MODIFIED="1548392689628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab2" />
     <SUITE FILE_PATH="coverage/cs355Notebooks$lab3.coverage" NAME="lab3 Coverage Results" MODIFIED="1549348760500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab3" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="356" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -39,49 +47,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab5/Lab6-OpenGL.py">
+        <entry file="file://$PROJECT_DIR$/hw8/hw8.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="281" column="19" selection-start-line="281" selection-start-column="12" selection-end-line="281" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab5/notes.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/OpenGL/raw/GLU/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7372">
-              <caret line="393" column="44" selection-start-line="393" selection-start-column="44" selection-end-line="393" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/OpenGL/raw/GL/VERSION/GL_1_0.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16910">
-              <caret line="898" column="27" selection-start-line="898" selection-start-column="27" selection-end-line="898" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw7/hw7.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="323">
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="24" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -90,44 +59,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
+        <entry file="file://$PROJECT_DIR$/lab8/Lab8-Lighting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6069">
-              <caret line="661" column="22" lean-forward="true" selection-start-line="661" selection-start-column="22" selection-end-line="661" selection-end-column="22" />
+            <state relative-caret-position="314">
+              <caret line="128" column="59" lean-forward="true" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
               <folding>
-                <element signature="e#48#61#0" expanded="true" />
+                <element signature="e#131#150#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL_TRY2.py">
+        <entry file="file://$PROJECT_DIR$/lab8/instructions.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="76">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL.py">
+        <entry file="file://$PROJECT_DIR$/lab8/wireframe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2014">
-              <caret line="107" column="15" selection-start-line="107" selection-start-column="15" selection-end-line="107" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1825">
+              <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab5/projection.PNG">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/lab8/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw8/alt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" lean-forward="true" selection-end-line="89" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -151,7 +126,6 @@
       <find>loadHo</find>
       <find>index</find>
       <find>front</find>
-      <find>front</find>
       <find>drawho</find>
       <find>get_tran</find>
       <find>get_ro</find>
@@ -171,6 +145,7 @@
       <find>car.pos</find>
       <find>tires</find>
       <find>tire_ro</find>
+      <find>trab</find>
     </findStrings>
     <replaceStrings>
       <replace>cam.projection_mode</replace>
@@ -214,11 +189,20 @@
         <option value="$PROJECT_DIR$/lab7/lab7.py" />
         <option value="$PROJECT_DIR$/hw7/hw7.py" />
         <option value="$PROJECT_DIR$/lab5/Lab6-OpenGL.py" />
+        <option value="$PROJECT_DIR$/lab8/__init__.py" />
+        <option value="$PROJECT_DIR$/lab8/basicShape.py" />
+        <option value="$PROJECT_DIR$/lab8/basicShapes.py" />
+        <option value="$PROJECT_DIR$/lab8/instructions.txt" />
+        <option value="$PROJECT_DIR$/hw8/test.py" />
+        <option value="$PROJECT_DIR$/lab8/wireframe.py" />
         <option value="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" />
+        <option value="$PROJECT_DIR$/hw8/alt.py" />
+        <option value="$PROJECT_DIR$/hw8/hw8.py" />
+        <option value="$PROJECT_DIR$/lab8/Lab8-Lighting.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -229,6 +213,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,7 +224,12 @@
             <path>
               <item name="cs355Notebooks" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs355Notebooks" type="462c0819:PsiDirectoryNode" />
-              <item name="hw7" type="462c0819:PsiDirectoryNode" />
+              <item name="hw8" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs355Notebooks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs355Notebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="lab4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs355Notebooks" type="b2602c69:ProjectViewProjectNode" />
@@ -251,29 +241,38 @@
               <item name="cs355Notebooks" type="462c0819:PsiDirectoryNode" />
               <item name="lab7" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cs355Notebooks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs355Notebooks" type="462c0819:PsiDirectoryNode" />
+              <item name="lab8" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sndru\PycharmProjects\CS-355-Notebooks\cs355Notebooks\lab5" />
-      <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\hw3" />
-      <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\lab2" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sndru\PycharmProjects\CS-355-Notebooks\cs355Notebooks\lab5" />
       <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\lab4" />
+      <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\hw3" />
+      <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\lab2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sndru\PycharmProjects\CS-355-Notebooks\cs355Notebooks\lab8" />
+      <recent name="C:\Users\sndru\PycharmProjects\CS-355-Notebooks\cs355Notebooks\lab5" />
       <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\hw3" />
       <recent name="C:\Users\sndru\PycharmProjects\cs355Notebooks\lab2" />
     </key>
@@ -290,18 +289,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Lab7-3DProjection">
-    <configuration name="Lab6-OpenGL" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Lab8-Lighting">
+    <configuration name="Lab7-3DProjection" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cs355Notebooks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab5" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab7" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab5/Lab6-OpenGL.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -310,17 +312,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Lab7-3DProjection" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Lab8-Lighting" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cs355Notebooks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab7/Lab7-3DProjection.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab8/Lab8-Lighting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -351,17 +353,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="hw7" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="alt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cs355Notebooks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw7/hw7.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw8/alt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -370,20 +372,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="problem3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="hw8" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cs355Notebooks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw7/problem3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw8/hw8.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -392,20 +391,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="testWithOpenGl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cs355Notebooks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw8" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw7/testWithOpenGl.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw8/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -416,11 +412,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Lab8-Lighting" />
+        <item itemvalue="Python.hw8" />
+        <item itemvalue="Python.alt" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.Lab7-3DProjection" />
-        <item itemvalue="Python.Lab6-OpenGL" />
-        <item itemvalue="Python.hw7" />
-        <item itemvalue="Python.problem3" />
-        <item itemvalue="Python.testWithOpenGl" />
       </list>
     </recent_temporary>
   </component>
@@ -471,12 +467,20 @@
       <workItem from="1552204222823" duration="2101000" />
       <workItem from="1552264497944" duration="4213000" />
       <workItem from="1552276153290" duration="13199000" />
-      <workItem from="1552339283771" duration="31814000" />
+      <workItem from="1552339283771" duration="32736000" />
+      <workItem from="1552685029379" duration="105000" />
+      <workItem from="1553627643982" duration="4019000" />
+      <workItem from="1553723460205" duration="1046000" />
+      <workItem from="1553724572452" duration="594000" />
+      <workItem from="1553726099447" duration="3906000" />
+      <workItem from="1553754196559" duration="5391000" />
+      <workItem from="1553759623867" duration="418000" />
+      <workItem from="1553791819062" duration="18315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270310000" />
+    <option name="totallyTimeSpent" value="305026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,17 +492,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114605546" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28774616" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39824945" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.25893825" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
@@ -507,66 +510,26 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32827735" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.2881907" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.29102844" />
+      <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" sideWeight="0.9507936" weight="0.23888314" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" sideWeight="0.04920635" side_tool="true" weight="0.45309168" />
-      <window_info anchor="right" id="Coverage" order="6" side_tool="true" />
+      <window_info anchor="right" id="Coverage" order="6" side_tool="true" visible="true" weight="0.16897655" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cs355Notebooks$Lab8_Lighting.coverage" NAME="Lab8-Lighting Coverage Results" MODIFIED="1553808098167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab8" />
+    <SUITE FILE_PATH="coverage/cs355Notebooks$hw8.coverage" NAME="hw8 Coverage Results" MODIFIED="1553805107177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw8" />
+    <SUITE FILE_PATH="coverage/cs355Notebooks$test.coverage" NAME="test Coverage Results" MODIFIED="1553759971068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw8" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3629">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="2730" column="4" selection-start-line="2730" selection-start-column="4" selection-end-line="2730" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab1/geese.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Lab4-ImageTransformations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="15" column="77" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab4/Bird5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab4/Bird6.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -780,6 +743,7 @@
     <entry file="file://$PROJECT_DIR$/lab5/World To Camera.PNG">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/Lab6Models.py" />
     <entry file="file://$PROJECT_DIR$/lab5/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -801,6 +765,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab8/basicShape.py" />
+    <entry file="file://$PROJECT_DIR$/lab10/wireframe/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/hw7/hw7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="10" selection-start-line="10" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/Lab6-OpenGL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5320">
+          <caret line="281" column="19" selection-start-line="281" selection-start-column="12" selection-end-line="281" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL_TRY2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2014">
@@ -814,49 +810,76 @@
     <entry file="file://$PROJECT_DIR$/lab5/projection.PNG">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/Lab6Models.py">
+    <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="437">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#48#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7.py">
+    <entry file="file://$PROJECT_DIR$/lab8/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw8/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="36" />
+        <state relative-caret-position="361">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/Lab5-OpenGL_TRY2.py">
+    <entry file="file://$PROJECT_DIR$/lab8/instructions.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="151" column="17" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="17" />
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab8/basicShapes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-811">
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab8/wireframe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw8/alt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" lean-forward="true" selection-end-line="89" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/Lab6-OpenGL.py">
+    <entry file="file://$PROJECT_DIR$/hw8/hw8.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="281" column="19" selection-start-line="281" selection-start-column="12" selection-end-line="281" selection-end-column="19" />
+        <state relative-caret-position="323">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="24" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab7/Lab7-3DProjection.py">
+    <entry file="file://$PROJECT_DIR$/lab8/Lab8-Lighting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6069">
-          <caret line="661" column="22" lean-forward="true" selection-start-line="661" selection-start-column="22" selection-end-line="661" selection-end-column="22" />
+        <state relative-caret-position="314">
+          <caret line="128" column="59" lean-forward="true" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
           <folding>
-            <element signature="e#48#61#0" expanded="true" />
+            <element signature="e#131#150#0" expanded="true" />
           </folding>
         </state>
       </provider>

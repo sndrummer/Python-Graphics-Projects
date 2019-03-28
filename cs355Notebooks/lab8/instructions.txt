@@ -1,0 +1,4 @@
+r = 2(l * n)n - l
+
+where r is the reflection vector, l is the incoming light vector, and n is the normal to the surface at that point.
+
