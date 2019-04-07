@@ -2,7 +2,6 @@ from scipy.ndimage import imread
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.misc import imsave
-import cv2
 import math
 
 
@@ -11,9 +10,6 @@ class Point:
         self.x = x
         self.y = y
         self.rgb = value
-
-    def get_as_3Dvector(self):
-        return np.array([self.x, self.y, 0])
 
     def __str__(self):
         return f'({self.x}, {self.y})'
@@ -24,16 +20,10 @@ class Point:
 
 # Your bilinear interpolation function
 def interpolate(points, x, y):
-    print("Interpolating x: ", x, " and y: ", y)
     point0 = points[0]
     point1 = points[1]
     point2 = points[2]
     point3 = points[3]
-
-    # print("point0: ", point0)
-    # print("point1: ", point1)
-    # print("point2: ", point2)
-    # print("point3: ", point3)
 
     x1, y1, q11 = point0.x, point0.y, point0.rgb
     _x1, y2, q12 = point1.x, point1.y, point1.rgb
@@ -50,32 +40,6 @@ def interpolate(points, x, y):
             q12 * (x2 - x) * (y - y1) +
             q22 * (x - x1) * (y - y1)
             ) / ((x2 - x1) * (y2 - y1) + 0.0)
-
-
-def interpolate_helper(point, diff, coord1, coord2):
-    print("DIFF is: ", diff)
-    val1 = coord1.rgb
-    # print("VAL1: :", val1)
-    val2 = coord2.rgb
-    # print("VAL2: :", val2)
-    # Get new RGB
-    new_val = round(val1 + diff * (val2 - val1), 3)
-    inter_coord = Point(coord1.x, point.y, new_val)
-    return inter_coord
-
-
-def bilinear_interpolate(point, quad):
-    # step 1, interpolate the first two coordinates with same x value
-    y = point.y
-    x = point.x
-    diff = round(y - quad[0].y, 2)  # neighbors.coord1[1]
-    inter_coord1 = interpolate_helper(point, diff, quad[0],
-                                      quad[1])  # coord are points coord[2] are values!!!!
-    # step 2, interpolate the next two coordinates with the same x-value
-    inter_coord2 = interpolate_helper(point, diff, quad[2], quad[3])
-    diff = round(x - quad[0].x, 2)
-    inter_coord3 = interpolate_helper(point, diff, inter_coord1, inter_coord2)
-    return inter_coord3.rgb
 
 
 def resize_image(image, height, width):
@@ -110,15 +74,6 @@ def resize_image(image, height, width):
     return new_image
 
 
-def example_solution(image):
-    return None
-
-
-8
-
-# remember that this is how you get the RGB values
-#  im[:, :, 2] = 0   --> this makes all the Blue disappear
-# im[:, :, 0] = 0    --> this makes all the red disappear
 
 filename = "test.png"
 image = imread(filename)
@@ -134,35 +89,5 @@ plt.show()
 
 result = resize_image(image, int(2.3 * h), int(2.3 * w))
 
-# print("result: \n", result)
-# Write code that scales the image by a factor of 2.3
-# It should call interpolate.
-
-# Your Code Here
-
-width = int(2.3 * w)
-height = int(2.3 * h)
-print("i should be: ", width * height)
-# print("width: ", width, " and height: ", height)
-# res = cv2.resize(image, dsize=(width, height))
-# print(res.shape)
-
-# plt.imshow(result, vmin=0)
 plt.imshow(result, vmin=0)
 plt.show()
-
-# original_image = image
-# height = image.shape[0]
-# width = image.shape[1]
-#
-# gridSize = 5
-# grid = []
-# for i in range(0, width, gridSize):
-#     for j in range(0, height, gridSize):
-#         a = Point(i, j)
-#         b = Point(i + gridSize, j)
-#         c = Point(i + gridSize, j + gridSize)
-#         d = Point(i, j + gridSize)
-#         grid.append([a, b, c, d])
-# # Your code here
-# print("GRID: ", grid)

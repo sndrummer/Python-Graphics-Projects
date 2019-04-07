@@ -51,7 +51,6 @@ def get_min_bounding_box(four_corners):
 
 
 def interpolate_helper(point, diff, coord1, coord2):
-    print("DIFF is: ", diff)
     val1 = coord1[2]
     val2 = coord2[2]
     inter_coord = [coord1[0], point.y, 0]
