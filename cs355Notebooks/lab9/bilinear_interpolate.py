@@ -74,7 +74,6 @@ def resize_image(image, height, width):
     return new_image
 
 
-
 filename = "test.png"
 image = imread(filename)
 h, w, _ = image.shape

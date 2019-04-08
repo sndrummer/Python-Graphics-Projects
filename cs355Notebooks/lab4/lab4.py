@@ -56,7 +56,7 @@ def compose(frame, image, offset_x, offset_y, degrees_rotation, scale_x, scale_y
     e = t[1, 1]
     f = t[1, 2]
 
-    image = image.transform((width, height), Image.AFFINE, (a, b, c, d, e, f), Image.BICUBIC)
+    image = image.transform((width, height), Image.AFFINE, (a, b, c, d, e, f), Image.BILINEAR)
 
     im = np.sum(np.asarray(image), -1)
     print("image:", image)
