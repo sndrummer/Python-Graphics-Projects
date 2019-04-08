@@ -34,7 +34,7 @@ def interpolate(points, x, y):
     :param y: y val of point you are interpolating
     :return: value attached with the points
     """
-    #print("Checking point: (", x, " ", y, ")")
+    # print("Checking point: (", x, " ", y, ")")
 
     point0 = points[0]
     point1 = points[1]
@@ -184,37 +184,141 @@ def backmap1(image, transform):
             points = get_close_points(image, transformed_point)
             if points != None:
                 rgb = interpolate(points, transformed_point.x, transformed_point.y)
-                result[x][y] = rgb
+                result[y][x] = rgb
 
     return result
 
 
 #  ***** Excercise 2 *****
-filename = "test.png"
-im = imread(filename)
-h, w, _ = im.shape
-transform = np.matrix([[cos(45 * pi / 180), -sin(45 * pi / 180), w / 2],
-                       [sin(45 * pi / 180), cos(45 * pi / 180), -h / 5],
-                       [0, 0, 1]])
-
-result = backmap1(im, transform)
-
-plt.imshow(result, vmin=0)
-plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# filename = "test.png"
+# im = imread(filename)
+# h, w, _ = im.shape
+# transform = np.matrix([[cos(45 * pi / 180), -sin(45 * pi / 180), w / 2],
+#                        [sin(45 * pi / 180), cos(45 * pi / 180), -h / 5],
+#                        [0, 0, 1]])
+#
+# result = backmap1(im, transform)
+#
+# plt.imshow(result, vmin=0)
+# plt.show()
 
 
 #  ***** Excercise 3 *****
+# Part 3: Homographies
+# Now that we have the two specific functions that we need,
+# let's start looking at some more interesting image warping. In class, we discussed how we can use
+# homographies to warp images nonlinearly. In this lab, we have provided the homography generating
+# code for you.
+# We want to be able to get a new image into the tv set in the image shown below. Note that not all
+# pixels will need to be backward mapped. For this reason, we also need to specify a list of points
+# that we are considering. This is provided in the getScreen function definined above.
+#
+# Rewrite your backmap function to allow for two images of different sizes and a specific set of
+# points that need to be mapped.
+
+def getHomography(s0, s1, s2, s3, t0, t1, t2, t3):
+    x0s = s0.x
+    y0s = s0.y
+    x0t = t0.x
+    y0t = t0.y
+
+    x1s = s1.x
+    y1s = s1.y
+    x1t = t1.x
+    y1t = t1.y
+
+    x2s = s2.x
+    y2s = s2.y
+    x2t = t2.x
+    y2t = t2.y
+
+    x3s = s3.x
+    y3s = s3.y
+    x3t = t3.x
+    y3t = t3.y
+
+    # Solve for the homography matrix
+    A = np.matrix([
+        [x0s, y0s, 1, 0, 0, 0, -x0t * x0s, -x0t * y0s],
+        [0, 0, 0, x0s, y0s, 1, -y0t * x0s, -y0t * y0s],
+        [x1s, y1s, 1, 0, 0, 0, -x1t * x1s, -x1t * y1s],
+        [0, 0, 0, x1s, y1s, 1, -y1t * x1s, -y1t * y1s],
+        [x2s, y2s, 1, 0, 0, 0, -x2t * x2s, -x2t * y2s],
+        [0, 0, 0, x2s, y2s, 1, -y2t * x2s, -y2t * y2s],
+        [x3s, y3s, 1, 0, 0, 0, -x3t * x3s, -x3t * y3s],
+        [0, 0, 0, x3s, y3s, 1, -y3t * x3s, -y3t * y3s]
+    ])
+
+    b = np.matrix([
+        [x0t],
+        [y0t],
+        [x1t],
+        [y1t],
+        [x2t],
+        [y2t],
+        [x3t],
+        [y3t]
+    ])
+
+    # The homorgraphy solutions a-h
+    solutions = np.linalg.solve(A, b)
+
+    solutions = np.append(solutions, [[1.0]], axis=0)
+
+    # Reshape the homography into the appropriate 3x3 matrix
+    homography = np.reshape(solutions, (3, 3))
+
+    return homography
+
+
+def getScreen():
+    result = []
+    screen = np.loadtxt("screen.txt")
+    for line in screen:
+        result.append(Point(int(line[0]), int(line[1])))
+    return result
+
+
+def backmap2(source, target, transform, points):
+    h, w, _ = source.shape
+    t = np.linalg.inv(transform)
+    # backmap only the points
+    for point in points:
+        new_pt = t * point.get_as_vector()
+        transformed_point = Point(new_pt.item(0), new_pt.item(1))
+        points = get_close_points(source, transformed_point)
+        if points != None:
+            rgb = interpolate(points, transformed_point.x, transformed_point.y)
+            target[point.y][point.x] = rgb
+
+    return target
+
+
+filename = "test.png"
+im = imread(filename)
+
+h, w, _ = im.shape
+
+s0 = Point(0, 0)
+s1 = Point(w - 1, 0)
+s2 = Point(w - 1, h - 1)
+s3 = Point(0, h - 1)
+
+t0 = Point(245, 152)
+t1 = Point(349, 150)
+t2 = Point(349, 253)
+t3 = Point(246, 261)
+
+tv = imread('tv.jpg')
+plt.imshow(tv, vmin=0)
+plt.show()
+
+transform = getHomography(s0, s1, s2, s3, t0, t1, t2, t3)
+
+screen = getScreen()
+
+# source is the bird and target is the tv
+result = backmap2(im, tv, transform, screen)
+
+plt.imshow(result, vmin=0)
+plt.show()
