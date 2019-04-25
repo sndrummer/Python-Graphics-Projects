@@ -1,2 +1,1 @@
-# CS-355-Notebooks
-CS 355 notebooks
+# Python Graphics and Imaging Processing Projects and Homework
